@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { StyledMenu } from "./style";
+import { StyledLink, StyledMenu } from "./style";
 
 const MenuNav: React.FC<any> = () => {
   return (
@@ -9,7 +9,7 @@ const MenuNav: React.FC<any> = () => {
         <p>Curso atual: {"Engenharia de software"}</p>
       </div>
       <div>
-        <p>Alterar curso</p>
+        <StyledLink href="/signin">Alterar curso</StyledLink>
       </div>
     </StyledMenu>
   );

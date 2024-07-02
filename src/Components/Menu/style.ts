@@ -13,3 +13,9 @@ export const StyledMenu = styled.div`
   border-bottom-right-radius: 10px;
   align-items: center;
 `;
+
+export const StyledLink = styled.a`
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+`;
