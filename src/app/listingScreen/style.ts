@@ -13,3 +13,18 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Arial, sans-serif; 
   }
 `;
+
+export const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+`;
+
+export const SearchInput = styled.input`
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #30a7a0;
+  border-radius: 5px;
+`;

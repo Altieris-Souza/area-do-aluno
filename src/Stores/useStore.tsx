@@ -1,8 +1,8 @@
 import { create } from "zustand";
 
 interface StoreState {
-  formType: "user" | "course" | "admin" | null;
-  setFormType: (type: "user" | "course" | "admin") => void;
+  formType: "user" | "professor" | "course" | "admin" | null;
+  setFormType: (type: "user" | "professor" | "course" | "admin") => void;
 }
 
 const useStore = create<StoreState>((set) => ({

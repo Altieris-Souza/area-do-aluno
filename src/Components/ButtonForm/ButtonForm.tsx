@@ -9,7 +9,7 @@ interface ButtonProps {
   colorFont?: string;
 }
 
-const ButtonAdmin: React.FC<ButtonProps> = ({ text, onClick, color }) => {
+const ButtonForm: React.FC<ButtonProps> = ({ text, onClick, color }) => {
   return (
     <StyledButton onClick={onClick} color={color}>
       {text}
@@ -17,4 +17,4 @@ const ButtonAdmin: React.FC<ButtonProps> = ({ text, onClick, color }) => {
   );
 };
 
-export default ButtonAdmin;
+export default ButtonForm;

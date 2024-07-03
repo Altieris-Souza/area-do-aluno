@@ -5,11 +5,11 @@ import ContainerFormAdmin from "../ContainerFormAdmin/ContainerFormAdmin";
 import ButtonAdmin from "../ButtonAdmin/ButtonAdmin";
 import ButtonForm from "../ButtonForm/ButtonForm";
 
-const FormCreateUser = () => {
+const FormCreateProfessor = () => {
   return (
     <>
       <ContainerFormAdmin>
-        <h1 style={{ color: "#30a7a0", padding: "20px" }}>Criar Usuário</h1>
+        <h1 style={{ color: "#30a7a0", padding: "20px" }}>Criar Professor</h1>
         <StyledLabel>
           <LabelText>Nome</LabelText>
           <StyledInput placeholder="Insira o texto"></StyledInput>
@@ -50,4 +50,4 @@ const FormCreateUser = () => {
   );
 };
 
-export default FormCreateUser;
+export default FormCreateProfessor;

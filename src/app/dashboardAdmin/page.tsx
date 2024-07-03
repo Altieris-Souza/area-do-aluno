@@ -59,24 +59,11 @@ export default function DashboardAdminPage() {
             >
               <ButtonAdmin
                 onClick={() => {
-                  setFormType("user");
-                  router.push("/creationScreen");
-                }}
-                text="Criar Usuário"
-              ></ButtonAdmin>
-              <ButtonAdmin
-                onClick={() => {
-                  setFormType("course");
-                  router.push("/creationScreen");
+                  router.push("/listingScreen");
                 }}
                 text="Listar Usuários"
               ></ButtonAdmin>
-              <ButtonAdmin
-                onClick={() => {
-                  router.push("/creationScreen");
-                }}
-                text="Criar Curso"
-              ></ButtonAdmin>
+
               <ButtonAdmin
                 onClick={() => {
                   router.push("/listingScreen");
@@ -94,22 +81,11 @@ export default function DashboardAdminPage() {
             >
               <ButtonAdmin
                 onClick={() => {
-                  router.push("/creationScreen");
-                }}
-                text="Criar Usuário"
-              ></ButtonAdmin>
-              <ButtonAdmin
-                onClick={() => {
                   router.push("/listingScreen");
                 }}
-                text="Listar Usuários"
+                text="Listar Professores"
               ></ButtonAdmin>
-              <ButtonAdmin
-                onClick={() => {
-                  router.push("/creationScreen");
-                }}
-                text="Criar Curso"
-              ></ButtonAdmin>
+
               <ButtonAdmin
                 onClick={() => {
                   router.push("/listingScreen");
