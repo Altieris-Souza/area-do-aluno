@@ -6,8 +6,11 @@ import ButtonForm from "../ButtonForm/ButtonForm";
 import usePersonStore from "@/Stores/person";
 import useAddressStore from "@/Stores/addressStore";
 import { IAddress, IPerson } from "@/utils/interface";
+import { useRouter } from "next/navigation";
 
 const FormCreateUser = () => {
+  const router = useRouter();
+
   const { createPerson } = usePersonStore();
   const { createAddress } = useAddressStore();
 
@@ -57,7 +60,11 @@ const FormCreateUser = () => {
     await createAddress(address).then((res) => {
       person.AddressId = res;
 
-      createPerson(person);
+      try {
+        createPerson(person);
+
+        router.push("/signin");
+      } catch {}
     });
   };
 

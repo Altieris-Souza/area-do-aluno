@@ -7,6 +7,7 @@ interface InputTextProps {
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
+  type?: string;
 }
 
 const InputAuth: React.FC<InputTextProps> = ({
@@ -15,6 +16,7 @@ const InputAuth: React.FC<InputTextProps> = ({
   value,
   onChange,
   placeholder,
+  type,
 }) => {
   return (
     <StyledInput
@@ -24,6 +26,7 @@ const InputAuth: React.FC<InputTextProps> = ({
       onChange={onChange}
       className="inputText"
       placeholder={placeholder}
+      type={type}
     />
   );
 };
