@@ -1,58 +1,59 @@
 "use client";
 
-import { useState } from "react";
-import { Modal } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Button, Modal } from "react-bootstrap";
 import { CreateButton, GlobalStyle, PageWrapper, SearchInput } from "./style";
 import useStore from "@/Stores/useStore";
 import UserList from "@/Components/UserList/userList";
 import { useRouter } from "next/navigation";
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
-
-const initialUsers: User[] = [
-  { id: 1, name: "alt teste", email: "teste@mail.com" },
-  { id: 2, name: "alt1 teste", email: "teste1@mail.com" },
-  { id: 3, name: "alt2 teste", email: "teste2@mail.com" },
-  { id: 4, name: "alt3 teste", email: "teste3@mail.com" },
-];
+import { IUser } from "@/utils/interface";
+import useUserStore from "@/Stores/userStore";
 
 export default function DashboardAdminPage() {
+  const { setFormType } = useStore();
+  const { allUsers, listUsers, deleteUser } = useUserStore();
+
+  useEffect(() => {
+    listUsers();
+  }, []);
+
   const router = useRouter();
 
-  const { setFormType } = useStore();
-
-  const [users, setUsers] = useState(initialUsers);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [selectedUser, setSelectedUser] = useState<any>();
   const [modalType, setModalType] = useState<"edit" | "delete" | null>(null);
+
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
-  const filteredUsers = users.filter(
-    (user) =>
-      user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.email.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  //   const filteredUsers = users.filter(
+  //     (user) =>
+  //       user.Name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //       user.Email.toLowerCase().includes(searchTerm.toLowerCase())
+  //   );
 
-  const openModal = (user: User, type: "edit" | "delete") => {
+  const openModal = (user: IUser, type: "edit" | "delete") => {
     setSelectedUser(user);
     setModalType(type);
-  };
-
-  const closeModal = () => {
-    setSelectedUser(null);
-    setModalType(null);
+    setShowModal(true);
   };
 
   const handleCreateUser = () => {
     setFormType("user");
     router.push("/creationScreen");
+  };
+
+  const handleConfirm = async () => {
+    if (modalType == "delete") {
+      if (selectedUser) {
+        await deleteUser(selectedUser.id);
+        await listUsers();
+        setShowModal(false);
+      }
+    }
   };
 
   return (
@@ -67,13 +68,37 @@ export default function DashboardAdminPage() {
         />
         <CreateButton onClick={handleCreateUser}>Criar usuário</CreateButton>
         <UserList
-          users={filteredUsers}
+          users={allUsers}
           onEdit={(user) => openModal(user, "edit")}
           onDelete={(user) => openModal(user, "delete")}
         />
       </PageWrapper>
       {modalType && selectedUser && (
-        <Modal type={modalType} user={selectedUser} onClose={closeModal} />
+        <Modal
+          backdrop="static"
+          show={showModal}
+          type={modalType}
+          user={selectedUser}
+        >
+          <Modal.Header>
+            <Modal.Title>
+              {modalType == "edit" ? "Editar usuário" : "Excluir usuário"}
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {modalType == "edit"
+              ? "Em construção..."
+              : "Certeza que seja excluir o usuário?"}
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setShowModal(false)}>
+              Cancelar
+            </Button>
+            <Button variant="primary" onClick={handleConfirm}>
+              Confirmar
+            </Button>
+          </Modal.Footer>
+        </Modal>
       )}
     </>
   );

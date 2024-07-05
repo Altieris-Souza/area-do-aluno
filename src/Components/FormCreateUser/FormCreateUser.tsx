@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import { LabelText, Select, StyledInput, StyledLabel } from "./style";
 import ContainerFormAdmin from "../ContainerFormAdmin/ContainerFormAdmin";
 import ButtonForm from "../ButtonForm/ButtonForm";
-import usePersonStore from "@/Stores/person";
+import useUserStore from "@/Stores/userStore";
 import useAddressStore from "@/Stores/addressStore";
-import { IAddress, IPerson } from "@/utils/interface";
+import { IAddress, IUser } from "@/utils/interface";
 import { useRouter } from "next/navigation";
 
 const FormCreateUser = () => {
   const router = useRouter();
 
-  const { createPerson } = usePersonStore();
+  const { createUser } = useUserStore();
   const { createAddress } = useAddressStore();
 
   const [name, setName] = useState<string>("");
@@ -31,8 +31,8 @@ const FormCreateUser = () => {
   const [number, setNumber] = useState<string>("");
   const [cep, setCep] = useState<string>("");
 
-  const handleCreatePerson = async () => {
-    const person: IPerson = {
+  const handleCreateUser = async () => {
+    const user: IUser = {
       Id: 0,
       Name: name,
       Email: email,
@@ -55,17 +55,19 @@ const FormCreateUser = () => {
       Cep: cep,
     };
 
-    person.Birthdate = person.Birthdate.split("T")[0];
+    user.Birthdate = user.Birthdate.split("T")[0];
 
-    await createAddress(address).then((res) => {
-      person.AddressId = res;
-
-      try {
-        createPerson(person);
-
+    await createAddress(address)
+      .then((res) => {
+        user.AddressId = res;
+      })
+      .then(() => {
+        createUser(user);
         router.push("/signin");
-      } catch {}
-    });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -184,7 +186,7 @@ const FormCreateUser = () => {
             onChange={(e) => setCep(e.target.value)}
           ></StyledInput>
         </StyledLabel>
-        <ButtonForm onClick={handleCreatePerson} text="Criar"></ButtonForm>
+        <ButtonForm onClick={handleCreateUser} text="Criar"></ButtonForm>
       </ContainerFormAdmin>
     </>
   );
