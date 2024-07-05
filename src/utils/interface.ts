@@ -1,4 +1,4 @@
-export interface IStudent {
+export interface IPerson {
   Id: number;
   Name: string;
   Cpf: string;
@@ -7,10 +7,13 @@ export interface IStudent {
   Email: string;
   Password: string;
   Rgm: string;
-  Sex: string;
-  BirthDate: Date;
+  Gender: string;
+  Birthdate: string;
+  Address?: IAddress;
   AddressId: number;
 }
+
+export interface IStudent extends IPerson {}
 
 export interface IAddress {
   Id: number;

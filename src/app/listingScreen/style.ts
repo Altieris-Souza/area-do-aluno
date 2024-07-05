@@ -28,3 +28,11 @@ export const SearchInput = styled.input`
   border: 1px solid #30a7a0;
   border-radius: 5px;
 `;
+
+export const CreateButton = styled.button`
+  background-color: #30a7a0;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  padding: 10px;
+`;

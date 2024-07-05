@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
-import { GlobalStyle, PageWrapper, SearchInput } from "./style";
+import { CreateButton, GlobalStyle, PageWrapper, SearchInput } from "./style";
 import useStore from "@/Stores/useStore";
 import UserList from "@/Components/UserList/userList";
+import { useRouter } from "next/navigation";
 
 interface User {
   id: number;
@@ -20,9 +21,10 @@ const initialUsers: User[] = [
 ];
 
 export default function DashboardAdminPage() {
-  const { formType } = useStore();
+  const router = useRouter();
 
-  console.log(formType);
+  const { setFormType } = useStore();
+
   const [users, setUsers] = useState(initialUsers);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
@@ -48,8 +50,10 @@ export default function DashboardAdminPage() {
     setModalType(null);
   };
 
-  console.log(modalType);
-  console.log(selectedUser);
+  const handleCreateUser = () => {
+    setFormType("user");
+    router.push("/creationScreen");
+  };
 
   return (
     <>
@@ -61,6 +65,7 @@ export default function DashboardAdminPage() {
           value={searchTerm}
           onChange={handleSearch}
         />
+        <CreateButton onClick={handleCreateUser}>Criar usuário</CreateButton>
         <UserList
           users={filteredUsers}
           onEdit={(user) => openModal(user, "edit")}

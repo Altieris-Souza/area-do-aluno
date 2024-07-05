@@ -7,6 +7,7 @@ export const StyledInput = styled.input`
   outline: none;
   height: 30px;
   padding-left: 10px;
+  color: white;
 
   &::placeholder {
     color: white;
@@ -25,4 +26,12 @@ export const StyledLabel = styled.label`
 
 export const LabelText = styled.span`
   margin-bottom: 5px;
+`;
+
+export const Select = styled.select`
+  background-color: #30a7a0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  height: 30px;
 `;
