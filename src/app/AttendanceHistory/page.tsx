@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CardsContainer, Container, SelectContainer } from "./styles";
-import AttendanceCard from "../components/AttendanceCard";
+import AttendanceCard from "../../Components/AttendanceCard";
 
 interface ISubject {
   name: string;

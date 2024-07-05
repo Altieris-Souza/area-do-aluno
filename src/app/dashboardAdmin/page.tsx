@@ -1,15 +1,10 @@
 "use client";
 
 import ButtonAdmin from "@/Components/ButtonAdmin/ButtonAdmin";
-import useStore from "@/Stores/useStore";
-import FormCreateUser from "@/Components/FormCreateUser/FormCreateUser";
-import FormCreateCourse from "@/Components/FormCreateCourse/FormCreateCourse";
 import { GlobalStyle } from "./style";
 import { useRouter } from "next/navigation";
 
 export default function DashboardAdminPage() {
-  const { setFormType } = useStore();
-
   const router = useRouter();
   return (
     <>
@@ -61,14 +56,14 @@ export default function DashboardAdminPage() {
                 onClick={() => {
                   router.push("/listingScreen");
                 }}
-                text="Listar Usuários"
+                text="Usuários"
               ></ButtonAdmin>
 
               <ButtonAdmin
                 onClick={() => {
                   router.push("/listingScreen");
                 }}
-                text="Listar Cursos"
+                text="Cursos"
               ></ButtonAdmin>
             </div>
             <div
@@ -83,14 +78,14 @@ export default function DashboardAdminPage() {
                 onClick={() => {
                   router.push("/listingScreen");
                 }}
-                text="Listar Professores"
+                text="Professores"
               ></ButtonAdmin>
 
               <ButtonAdmin
                 onClick={() => {
                   router.push("/listingScreen");
                 }}
-                text="Listar Cursos"
+                text="Cursos"
               ></ButtonAdmin>
             </div>
           </div>

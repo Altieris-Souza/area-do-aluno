@@ -9,8 +9,6 @@ import FormCreateProfessor from "@/Components/FormCreateProfessor/FormCreateProf
 export default function CreatePage(): any {
   const { formType } = useStore();
 
-  console.log(formType);
-
   const renderForm = () => {
     switch (formType) {
       case "user":
