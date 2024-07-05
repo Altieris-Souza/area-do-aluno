@@ -4,13 +4,13 @@ import { useRouter } from "next/navigation";
 import { StyledForm, StyledContainerDiv, StyledLabel } from "./style";
 import ButtonAuth from "@/Components/ButtonAuth/ButtonAuth";
 import InputAuth from "@/Components/InputAuth/InputAuth";
-import usePersonStore from "@/Stores/person";
+import useUserStore from "@/Stores/userStore";
 import { useState } from "react";
 import { ISignin } from "@/utils/interface";
 import { toast } from "react-toastify";
 
 export default function SigninPage() {
-  const { signin } = usePersonStore();
+  const { signin } = useUserStore();
 
   const router = useRouter();
 
@@ -18,12 +18,12 @@ export default function SigninPage() {
   const [password, setPassword] = useState<string>("");
 
   const handleSignin = async () => {
-    const personInfo: ISignin = {
+    const userInfo: ISignin = {
       Email: email,
       Password: password,
     };
     try {
-      await signin(personInfo);
+      await signin(userInfo);
 
       router.push("/dashboard");
     } catch (error: any) {

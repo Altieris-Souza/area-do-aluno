@@ -3,7 +3,7 @@ export interface ISignin {
   Password: string;
 }
 
-export interface IPerson {
+export interface IUser {
   Id: number;
   Name: string;
   Cpf: string;
@@ -18,7 +18,7 @@ export interface IPerson {
   AddressId: number;
 }
 
-export interface IStudent extends IPerson {}
+export interface IStudent extends IUser {}
 
 export interface IAddress {
   Id: number;
