@@ -1,3 +1,8 @@
+export interface ISignin {
+  Email: string;
+  Password: string;
+}
+
 export interface IPerson {
   Id: number;
   Name: string;

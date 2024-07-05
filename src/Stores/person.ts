@@ -1,6 +1,6 @@
 "use client";
 
-import { IPerson } from "@/utils/interface";
+import { IPerson, ISignin } from "@/utils/interface";
 import axios from "axios";
 import { create } from "zustand";
 
@@ -10,20 +10,15 @@ interface IPersonStore {
   signin: (personInfo: ISignin) => void;
 }
 
-interface ISignin {
-  Email: string;
-  Password: string;
-}
-
-const baseUrl = "http://localhost:5203/student";
+const baseUrl = "http://localhost:5203/person";
 
 const usePersonStore = create<IPersonStore>((set) => ({
   currentPerson: undefined,
   createPerson: async (person) => {
     await axios.post(`${baseUrl}`, person);
   },
-  signin: (personInfo) => {
-    axios.post(`${baseUrl}/signin`, personInfo).then((res) => {
+  signin: async (personInfo) => {
+    await axios.post(`${baseUrl}/signin`, personInfo).then((res) => {
       set({ currentPerson: res.data });
     });
   },
