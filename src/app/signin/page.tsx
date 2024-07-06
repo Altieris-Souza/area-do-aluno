@@ -78,13 +78,14 @@ export default function SigninPage() {
               />
             </StyledContainerDiv>
 
-            <ButtonAuth onClick={handleSignin} text="Entrar" />
+            <ButtonAuth onClick={handleSignin}>Entrar</ButtonAuth>
             <ButtonAuth
               onClick={() => {
-                router.push("/dashboardAdmin");
+                router.push("/admin/dashboard");
               }}
-              text="Entrar como Admin"
-            />
+            >
+              Entrar como admin
+            </ButtonAuth>
           </StyledForm>
         </ContainerAuth>
       </div>

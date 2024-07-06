@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { CardsContainer, Container, SelectContainer } from "./styles";
-import GradeCard from "../../Components/GradeCard";
+import GradeCard from "../../../Components/GradeCard";
 
 interface IGrade {
   name: string;
