@@ -33,7 +33,7 @@ export interface IAddress {
 export interface ICourse {
   Id: number;
   Name: string;
-  Price: string;
+  Price: number;
 }
 
 export interface IDiscipline {

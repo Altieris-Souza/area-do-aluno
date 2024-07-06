@@ -14,14 +14,25 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const MainDiv = styled.div`
-  background-color: #30a7a0;
-  border-radius: 10px;
+export const PageWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  padding: 20px;
+`;
+
+export const SearchInput = styled.input`
   width: 80%;
-  /* height: 80vh; */
-  margin: 10vh auto;
-  padding: 30px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #30a7a0;
+  border-radius: 5px;
+`;
+
+export const CreateButton = styled.button`
+  background-color: #30a7a0;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  padding: 10px;
 `;

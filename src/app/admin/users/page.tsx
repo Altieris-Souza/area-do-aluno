@@ -10,7 +10,6 @@ import { IUser } from "@/utils/interface";
 import useUserStore from "@/Stores/userStore";
 
 export default function Users() {
-  const { setFormType } = useStore();
   const { allUsers, listUsers, deleteUser } = useUserStore();
 
   useEffect(() => {
@@ -41,11 +40,6 @@ export default function Users() {
     setShowModal(true);
   };
 
-  const handleCreateUser = () => {
-    setFormType("user");
-    router.push("/creationScreen");
-  };
-
   const handleConfirm = async () => {
     if (modalType == "delete") {
       if (selectedUser) {
@@ -66,7 +60,9 @@ export default function Users() {
           value={searchTerm}
           onChange={handleSearch}
         />
-        <CreateButton onClick={handleCreateUser}>Cadastrar</CreateButton>
+        <CreateButton onClick={() => router.push("/admin/users/create")}>
+          Criar usuário
+        </CreateButton>
         <UserList
           users={allUsers}
           onEdit={(user) => openModal(user, "edit")}

@@ -1,5 +1,14 @@
+"use client";
+
 import ContainerFormAdmin from "@/Components/ContainerFormAdmin/ContainerFormAdmin";
-import { LabelText, Select, StyledInput, StyledLabel } from "./style";
+import {
+  GlobalStyle,
+  LabelText,
+  MainDiv,
+  Select,
+  StyledInput,
+  StyledLabel,
+} from "./style";
 import ButtonForm from "@/Components/ButtonForm/ButtonForm";
 import { useRouter } from "next/navigation";
 import useUserStore from "@/Stores/userStore";
@@ -71,122 +80,125 @@ export default function Create() {
 
   return (
     <>
-      <ContainerFormAdmin>
-        <h1 style={{ color: "#30a7a0", padding: "20px" }}>Criar Usuário</h1>
-        <StyledLabel>
-          <LabelText>Nome</LabelText>
-          <StyledInput
-            placeholder="Insira o texto"
-            onChange={(e) => setName(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <StyledLabel>
-          <LabelText>E-mail</LabelText>
-          <StyledInput
-            placeholder="Insira o e-mail"
-            type="email"
-            onChange={(e) => setEmail(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <StyledLabel>
-          <LabelText>CPF</LabelText>
-          <StyledInput
-            placeholder="Insira o CPF"
-            onChange={(e) => setCpf(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <StyledLabel>
-          <LabelText>RG</LabelText>
-          <StyledInput
-            placeholder="Insira o RG"
-            onChange={(e) => setRg(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <StyledLabel>
-          <LabelText>RGM (Registro de Matrícula)</LabelText>
-          <StyledInput
-            placeholder="Insira o RG"
-            onChange={(e) => setRgm(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <StyledLabel>
-          <LabelText>Data de Nascimento</LabelText>
-          <StyledInput
-            placeholder="Insira a data de nascimento"
-            type="date"
-            onChange={(e) => setBirthDate(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <StyledLabel>
-          <LabelText>Celular</LabelText>
-          <StyledInput
-            placeholder="Insira o celular"
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <StyledLabel>
-          <LabelText>Senha</LabelText>
-          <StyledInput
-            placeholder="Insira a senha"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <StyledLabel>
-          <LabelText>Sexo</LabelText>
-          <Select onChange={(e) => setGender(e.target.value)}>
-            <option selected disabled>
-              Selecione uma opção
-            </option>
-            <option value="M">Masculino</option>
-            <option value="F">Feminino</option>
-          </Select>
-        </StyledLabel>
-        <StyledLabel></StyledLabel>
-        <StyledLabel>
-          <LabelText>País</LabelText>
-          <StyledInput
-            placeholder="Insira o país"
-            onChange={(e) => setCountry(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <StyledLabel>
-          <LabelText>Estado</LabelText>
-          <StyledInput
-            placeholder="Insira o estado"
-            onChange={(e) => setState(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <StyledLabel>
-          <LabelText>Cidade</LabelText>
-          <StyledInput
-            placeholder="Insira a cidade"
-            onChange={(e) => setCity(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <StyledLabel>
-          <LabelText>Rua</LabelText>
-          <StyledInput
-            placeholder="Insira a rua"
-            onChange={(e) => setStreet(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <StyledLabel>
-          <LabelText>Número</LabelText>
-          <StyledInput
-            placeholder="Insira o número"
-            onChange={(e) => setNumber(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <StyledLabel>
-          <LabelText>CEP</LabelText>
-          <StyledInput
-            placeholder="Insira o CEP"
-            onChange={(e) => setCep(e.target.value)}
-          ></StyledInput>
-        </StyledLabel>
-        <ButtonForm onClick={handleCreateUser}>Criar</ButtonForm>
-      </ContainerFormAdmin>
+      <GlobalStyle></GlobalStyle>
+      <MainDiv>
+        <ContainerFormAdmin>
+          <h1 style={{ color: "#30a7a0", padding: "20px" }}>Criar Usuário</h1>
+          <StyledLabel>
+            <LabelText>Nome</LabelText>
+            <StyledInput
+              placeholder="Insira o texto"
+              onChange={(e) => setName(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <StyledLabel>
+            <LabelText>E-mail</LabelText>
+            <StyledInput
+              placeholder="Insira o e-mail"
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <StyledLabel>
+            <LabelText>CPF</LabelText>
+            <StyledInput
+              placeholder="Insira o CPF"
+              onChange={(e) => setCpf(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <StyledLabel>
+            <LabelText>RG</LabelText>
+            <StyledInput
+              placeholder="Insira o RG"
+              onChange={(e) => setRg(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <StyledLabel>
+            <LabelText>RGM (Registro de Matrícula)</LabelText>
+            <StyledInput
+              placeholder="Insira o RG"
+              onChange={(e) => setRgm(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <StyledLabel>
+            <LabelText>Data de Nascimento</LabelText>
+            <StyledInput
+              placeholder="Insira a data de nascimento"
+              type="date"
+              onChange={(e) => setBirthDate(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <StyledLabel>
+            <LabelText>Celular</LabelText>
+            <StyledInput
+              placeholder="Insira o celular"
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <StyledLabel>
+            <LabelText>Senha</LabelText>
+            <StyledInput
+              placeholder="Insira a senha"
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <StyledLabel>
+            <LabelText>Sexo</LabelText>
+            <Select onChange={(e) => setGender(e.target.value)}>
+              <option selected disabled>
+                Selecione uma opção
+              </option>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+            </Select>
+          </StyledLabel>
+          <StyledLabel></StyledLabel>
+          <StyledLabel>
+            <LabelText>País</LabelText>
+            <StyledInput
+              placeholder="Insira o país"
+              onChange={(e) => setCountry(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <StyledLabel>
+            <LabelText>Estado</LabelText>
+            <StyledInput
+              placeholder="Insira o estado"
+              onChange={(e) => setState(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <StyledLabel>
+            <LabelText>Cidade</LabelText>
+            <StyledInput
+              placeholder="Insira a cidade"
+              onChange={(e) => setCity(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <StyledLabel>
+            <LabelText>Rua</LabelText>
+            <StyledInput
+              placeholder="Insira a rua"
+              onChange={(e) => setStreet(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <StyledLabel>
+            <LabelText>Número</LabelText>
+            <StyledInput
+              placeholder="Insira o número"
+              onChange={(e) => setNumber(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <StyledLabel>
+            <LabelText>CEP</LabelText>
+            <StyledInput
+              placeholder="Insira o CEP"
+              onChange={(e) => setCep(e.target.value)}
+            ></StyledInput>
+          </StyledLabel>
+          <ButtonForm onClick={handleCreateUser}>Criar</ButtonForm>
+        </ContainerFormAdmin>
+      </MainDiv>
     </>
   );
 }
