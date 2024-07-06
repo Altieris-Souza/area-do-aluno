@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { IUser } from "@/utils/interface";
 import useUserStore from "@/Stores/userStore";
 
-export default function DashboardAdminPage() {
+export default function Users() {
   const { setFormType } = useStore();
   const { allUsers, listUsers, deleteUser } = useUserStore();
 
@@ -66,7 +66,7 @@ export default function DashboardAdminPage() {
           value={searchTerm}
           onChange={handleSearch}
         />
-        <CreateButton onClick={handleCreateUser}>Criar usuário</CreateButton>
+        <CreateButton onClick={handleCreateUser}>Cadastrar</CreateButton>
         <UserList
           users={allUsers}
           onEdit={(user) => openModal(user, "edit")}

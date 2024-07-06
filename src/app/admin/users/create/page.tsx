@@ -1,14 +1,13 @@
-"use client";
-import React, { useState } from "react";
+import ContainerFormAdmin from "@/Components/ContainerFormAdmin/ContainerFormAdmin";
 import { LabelText, Select, StyledInput, StyledLabel } from "./style";
-import ContainerFormAdmin from "../ContainerFormAdmin/ContainerFormAdmin";
-import ButtonForm from "../ButtonForm/ButtonForm";
+import ButtonForm from "@/Components/ButtonForm/ButtonForm";
+import { useRouter } from "next/navigation";
 import useUserStore from "@/Stores/userStore";
 import useAddressStore from "@/Stores/addressStore";
+import { useState } from "react";
 import { IAddress, IUser } from "@/utils/interface";
-import { useRouter } from "next/navigation";
 
-const FormCreateUser = () => {
+export default function Create() {
   const router = useRouter();
 
   const { createUser } = useUserStore();
@@ -186,10 +185,8 @@ const FormCreateUser = () => {
             onChange={(e) => setCep(e.target.value)}
           ></StyledInput>
         </StyledLabel>
-        <ButtonForm onClick={handleCreateUser} text="Criar"></ButtonForm>
+        <ButtonForm onClick={handleCreateUser}>Criar</ButtonForm>
       </ContainerFormAdmin>
     </>
   );
-};
-
-export default FormCreateUser;
+}

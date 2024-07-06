@@ -54,17 +54,19 @@ export default function DashboardAdminPage() {
             >
               <ButtonAdmin
                 onClick={() => {
-                  router.push("/listingScreen");
+                  router.push("/admin/users");
                 }}
-                text="Usuários"
-              ></ButtonAdmin>
+              >
+                Usuários
+              </ButtonAdmin>
 
               <ButtonAdmin
                 onClick={() => {
-                  router.push("/listingScreen");
+                  router.push("/admin/courses");
                 }}
-                text="Cursos"
-              ></ButtonAdmin>
+              >
+                Cursos
+              </ButtonAdmin>
             </div>
             <div
               style={{
@@ -78,15 +80,16 @@ export default function DashboardAdminPage() {
                 onClick={() => {
                   router.push("/listingScreen");
                 }}
-                text="Professores"
-              ></ButtonAdmin>
-
+              >
+                Professores
+              </ButtonAdmin>
               <ButtonAdmin
                 onClick={() => {
                   router.push("/listingScreen");
                 }}
-                text="Cursos"
-              ></ButtonAdmin>
+              >
+                Matricular aluno
+              </ButtonAdmin>
             </div>
           </div>
         </div>

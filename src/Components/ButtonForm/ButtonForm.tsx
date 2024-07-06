@@ -3,16 +3,16 @@ import React from "react";
 import { StyledButton } from "./style";
 
 interface ButtonProps {
-  text: string;
   onClick?: () => void;
   color?: string;
   colorFont?: string;
+  children: React.ReactNode;
 }
 
-const ButtonForm: React.FC<ButtonProps> = ({ text, onClick, color }) => {
+const ButtonForm: React.FC<ButtonProps> = ({ children, onClick, color }) => {
   return (
     <StyledButton onClick={onClick} color={color}>
-      {text}
+      {children}
     </StyledButton>
   );
 };
