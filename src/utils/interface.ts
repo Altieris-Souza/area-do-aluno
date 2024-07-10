@@ -1,55 +1,56 @@
 export interface ISignin {
-  Email: string;
-  Password: string;
+  email: string;
+  password: string;
 }
 
 export interface IUser {
-  Id: number;
-  Name: string;
-  Cpf: string;
-  Rg: string;
-  PhoneNumber: string;
-  Email: string;
-  Password: string;
-  Rgm: string;
-  Gender: string;
-  Birthdate: string;
-  Address?: IAddress;
-  AddressId: number;
+  id: number;
+  name: string;
+  cpf: string;
+  rg: string;
+  phoneNumber: string;
+  email: string;
+  password: string;
+  rgm: string;
+  gender: string;
+  birthdate: string;
+  address?: IAddress;
+  addressId: number;
 }
 
 export interface IStudent extends IUser {}
 
 export interface IAddress {
-  Id: number;
-  Country: string;
-  State: string;
-  City: string;
-  Street: string;
-  Number: string;
-  Cep: string;
+  id: number;
+  country: string;
+  state: string;
+  city: string;
+  street: string;
+  number: string;
+  cep: string;
 }
 
 export interface ICourse {
-  Id: number;
-  Name: string;
-  Price: number;
+  id: number;
+  name: string;
+  field: string;
+  active: boolean;
 }
 
 export interface IDiscipline {
-  Id: number;
-  Name: string;
+  id: number;
+  name: string;
 }
 
 export interface IEnrollment {
-  Id: number;
-  Student: IStudent;
-  StudentId: number;
-  Course: ICourse;
-  CourseId: number;
-  EnrollmentStatus: string;
-  EnrollmentDate: Date;
-  DiscountRate: number;
-  Period: number;
-  ComplementaryHourse: number;
+  id: number;
+  student: IStudent;
+  studentId: number;
+  course: ICourse;
+  courseId: number;
+  enrollmentStatus: string;
+  enrollmentDate: Date;
+  discountRate: number;
+  period: number;
+  complementaryHourse: number;
 }

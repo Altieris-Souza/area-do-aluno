@@ -15,22 +15,23 @@ import useCourseStore from "@/Stores/courseStore";
 import { useRouter } from "next/navigation";
 
 export default function Create() {
-  const { createCourse } = useCourseStore();
+  const { create } = useCourseStore();
 
   const router = useRouter();
 
   const [name, setName] = useState<string>("");
-  const [price, setPrice] = useState<number>(0.0);
+  const [department, setDepartment] = useState<string>("");
 
   const handleCreate = async () => {
     const course: ICourse = {
-      Id: 0,
-      Name: name,
-      Price: price,
+      id: 0,
+      name: name,
+      field: department,
+      active: false,
     };
 
     try {
-      await createCourse(course);
+      await create(course);
 
       router.push("/admin/courses");
     } catch (error: any) {
@@ -52,11 +53,11 @@ export default function Create() {
             ></StyledInput>
           </StyledLabel>
           <StyledLabel>
-            <LabelText>Preço:</LabelText>
+            <LabelText>Departamento:</LabelText>
             <StyledInput
-              placeholder="Insira o preço"
-              type="number"
-              onChange={(e) => setPrice(Number(e.target.value))}
+              placeholder="Insira o departamento"
+              type="text"
+              onChange={(e) => setDepartment(e.target.value)}
             ></StyledInput>
           </StyledLabel>
 

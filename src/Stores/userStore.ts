@@ -13,7 +13,7 @@ interface IUserStore {
   deleteUser: (userId: number) => void;
 }
 
-const baseUrl = "http://localhost:5203/person";
+const baseUrl = "http://localhost:5203/user";
 
 const useUserStore = create<IUserStore>((set) => ({
   currentUser: undefined,

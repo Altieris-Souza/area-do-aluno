@@ -41,33 +41,33 @@ export default function Create() {
 
   const handleCreateUser = async () => {
     const user: IUser = {
-      Id: 0,
-      Name: name,
-      Email: email,
-      Cpf: cpf,
-      Rg: rg,
-      PhoneNumber: phoneNumber,
-      Password: password,
-      Gender: gender,
-      Birthdate: birthDate,
-      Rgm: rgm,
-      AddressId: 0,
+      id: 0,
+      name: name,
+      email: email,
+      cpf: cpf,
+      rg: rg,
+      phoneNumber: phoneNumber,
+      password: password,
+      gender: gender,
+      birthdate: birthDate,
+      rgm: rgm,
+      addressId: 0,
     };
     const address: IAddress = {
-      Id: 0,
-      Country: country,
-      State: state,
-      City: city,
-      Street: street,
-      Number: number,
-      Cep: cep,
+      id: 0,
+      country: country,
+      state: state,
+      city: city,
+      street: street,
+      number: number,
+      cep: cep,
     };
 
-    user.Birthdate = user.Birthdate.split("T")[0];
+    user.birthdate = user.birthdate.split("T")[0];
 
     await createAddress(address)
       .then((res) => {
-        user.AddressId = res;
+        user.addressId = res;
       })
       .then(() => {
         createUser(user);
