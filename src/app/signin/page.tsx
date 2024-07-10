@@ -41,11 +41,8 @@ export default function SigninPage() {
   return (
     <>
       <div
-        className="signin"
+        className="d-flex flex-column align-items-center"
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
           width: "400px",
           margin: "0 auto",
           marginTop: "130px",
@@ -54,10 +51,9 @@ export default function SigninPage() {
         <h1 style={{ color: "#30a7a0" }}>Área do aluno</h1>
         <ContainerAuth>
           <StyledForm className="signinForm">
-            <h3>Login</h3>
-
+            <h3 className="mt-3">Login</h3>
             <StyledContainerDiv className="containerDiv">
-              <StyledLabel htmlFor="email">Email</StyledLabel>
+              <StyledLabel htmlFor="email">Email:</StyledLabel>
               <InputAuth
                 placeholder="Digite o seu email"
                 id="email"
@@ -68,7 +64,7 @@ export default function SigninPage() {
             </StyledContainerDiv>
 
             <StyledContainerDiv className="containerDiv">
-              <StyledLabel htmlFor="senha">Senha</StyledLabel>
+              <StyledLabel htmlFor="senha">Senha:</StyledLabel>
               <InputAuth
                 placeholder="Digite a sua senha"
                 id="senha"
