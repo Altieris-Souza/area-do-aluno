@@ -1,6 +1,6 @@
 "use client";
 
-import ButtonAdmin from "@/Components/ButtonAdmin/ButtonAdmin";
+import ButtonAdmin from "@/Components/ButtonAdmin";
 import { GlobalStyle } from "./style";
 import { useRouter } from "next/navigation";
 
