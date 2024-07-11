@@ -14,22 +14,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const PageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+export const Container = styled.div`
+  margin: 0 auto;
+  width: 90%;
 `;
 
-export const SearchInput = styled.input`
-  width: 80%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #30a7a0;
-  border-radius: 5px;
-`;
-
-export const CreateButton = styled.button`
+export const ButtonElement = styled.button`
   background-color: #30a7a0;
   color: white;
   border-radius: 4px;
